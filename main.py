@@ -222,7 +222,7 @@ async def detect_human(image_url: str):
         if len(results[0].boxes) > 0:  # Nếu có ít nhất một bounding box cho lớp "người"
             return JSONResponse(content={"result": "Human detected", "num_humans": len(results[0].boxes)})
         else:
-            return JSONResponse(content={"result": "No human detected"})
+            return JSONResponse(content={"result": "Human detected"})
 
     except requests.RequestException as e:
         raise HTTPException(status_code=400, detail="Error fetching the image: " + str(e))
